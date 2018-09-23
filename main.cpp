@@ -3,9 +3,11 @@
 #include "QuestionHandler.hpp"
 #include <vector>
 #include "QuestionResult.hpp"
+#include "QuestionGroup.hpp"
 
 int main(){
-   std::vector<QuestionResult> questions = {{
+   QuestionGroup questions;
+   questions.push_back({
       {
          "What does tamago mean in Japanese?",
          {
@@ -16,9 +18,20 @@ int main(){
          },
          2
       }
-   }};
+   });
+   questions.push_back({
+      {
+         "How do you say potato in Japanese?",
+         {
+            "Ore",
+            "Jagaimo",
+            "Watashi",
+            "Suru",
+            "Tamago"
+         },
+         1
+      }
+   });
 
-   QuestionHandler::ask_question(questions[0]);
-
-   std::cout << questions[0].correct << std::endl;
+   questions.ask_all_questions();
 }
