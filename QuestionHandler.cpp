@@ -5,7 +5,7 @@
 const char* QuestionHandler::correct_answer_message = "Correct!";
 const char* QuestionHandler::incorrect_answer_message = "Incorrect!";
 
-bool QuestionHandler::ask_question(Question &question){
+bool QuestionHandler::ask_question(const Question &question){
    std::cout << question.question << std::endl;
    for (auto i = question.answers.begin(); i != question.answers.end(); i++){
       std::cout << i - question.answers.begin() + 1 << " - " << *i << std::endl;
