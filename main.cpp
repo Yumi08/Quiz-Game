@@ -1,18 +1,24 @@
 #include <iostream>
 #include "Question.hpp"
 #include "QuestionHandler.hpp"
+#include <vector>
+#include "QuestionResult.hpp"
 
 int main(){
-   Question q{
-      "What does tamago mean in Japanese?",
+   std::vector<QuestionResult> questions = {{
       {
-         "Potato",
-         "Salad",
-         "Egg",
-         "Bread"
-      },
-      2
-   };
+         "What does tamago mean in Japanese?",
+         {
+            "Potato",
+            "Salad",
+            "Egg",
+            "Bread"
+         },
+         2
+      }
+   }};
 
-   QuestionHandler::ask_question(q);
+   QuestionHandler::ask_question(questions[0]);
+
+   std::cout << questions[0].correct << std::endl;
 }
