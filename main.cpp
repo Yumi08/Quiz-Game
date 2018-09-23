@@ -5,7 +5,13 @@
 #include "QuestionResult.hpp"
 #include "QuestionGroup.hpp"
 
+void setup(){
+   srand(time(0));
+}
+
 int main(){
+   setup();
+
    QuestionGroup questions;
    questions.push_back({
       {
@@ -33,5 +39,6 @@ int main(){
       }
    });
 
+   questions.shuffle_questions = true;
    questions.ask_all_questions();
 }
