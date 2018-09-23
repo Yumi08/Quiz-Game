@@ -3,8 +3,10 @@
 #include "QuestionResult.hpp"
 
 class QuestionHandler{
-   public:
+   private:
+   QuestionHandler();
 
+   public:
    static const char* correct_answer_message;
    static const char* incorrect_answer_message;
 
