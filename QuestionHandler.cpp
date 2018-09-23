@@ -3,6 +3,7 @@
 #include <string>
 #include <algorithm>
 
+bool QuestionHandler::show_correct_answer = false;
 const char* QuestionHandler::correct_answer_message = "Correct!";
 const char* QuestionHandler::incorrect_answer_message = "Incorrect!";
 
@@ -62,5 +63,7 @@ void QuestionHandler::ask_question(QuestionResult &question){
    }
    
    std::cout << incorrect_answer_message << std::endl;
+   if (show_correct_answer) std::cout << "Correct answer was " <<
+      question.question.correct_answer << "." << std::endl;
    question.correct = false;
 }

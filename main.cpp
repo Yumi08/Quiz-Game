@@ -39,6 +39,7 @@ int main(){
       }
    });
 
+   QuestionHandler::show_correct_answer = true;
    questions.shuffle_questions = true;
    questions.ask_all_questions();
 }

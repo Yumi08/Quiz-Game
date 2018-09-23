@@ -9,6 +9,7 @@ class QuestionHandler{
    public:
    static const char* correct_answer_message;
    static const char* incorrect_answer_message;
+   static bool show_correct_answer;
 
    static bool ask_question(const Question &question);
    static void ask_question(QuestionResult &question);
