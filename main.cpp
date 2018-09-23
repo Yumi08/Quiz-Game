@@ -22,7 +22,7 @@ int main(){
             "Egg",
             "Bread"
          },
-         2
+         "Egg"
       }
    });
    questions.push_back({
@@ -35,7 +35,7 @@ int main(){
             "Suru",
             "Tamago"
          },
-         1
+         "Jagaimo"
       }
    });
 

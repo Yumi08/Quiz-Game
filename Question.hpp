@@ -4,5 +4,5 @@
 struct Question{
    const char* question;
    std::vector<const char*> answers;
-   unsigned int correct_answer;
+   const char* correct_answer;
 };

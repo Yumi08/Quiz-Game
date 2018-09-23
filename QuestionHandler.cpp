@@ -1,6 +1,7 @@
 #include "QuestionHandler.hpp"
 #include <iostream>
 #include <string>
+#include <algorithm>
 
 const char* QuestionHandler::correct_answer_message = "Correct!";
 const char* QuestionHandler::incorrect_answer_message = "Incorrect!";
@@ -24,7 +25,7 @@ bool QuestionHandler::ask_question(const Question &question){
       goto input;
    }
 
-   if (answer == question.correct_answer + 1){
+   if (question.answers[answer - 1] == question.correct_answer){
       std::cout << correct_answer_message << std::endl;
       return true;
    }
@@ -34,6 +35,8 @@ bool QuestionHandler::ask_question(const Question &question){
 }
 
 void QuestionHandler::ask_question(QuestionResult &question){
+   std::random_shuffle(question.question.answers.begin(), question.question.answers.end());
+
    std::cout << question.question.question << std::endl;
    for (auto i = question.question.answers.begin(); i != question.question.answers.end(); i++){
       std::cout << i - question.question.answers.begin() + 1 << " - " << *i << std::endl;
@@ -52,7 +55,7 @@ void QuestionHandler::ask_question(QuestionResult &question){
       goto input;
    }
 
-   if (answer == question.question.correct_answer + 1){
+   if (question.question.answers[answer - 1] == question.question.correct_answer){
       std::cout << correct_answer_message << std::endl;
       question.correct = true;
       return;
