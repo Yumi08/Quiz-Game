@@ -14,5 +14,5 @@ int main(){
       2
    };
 
-   std::cout << QuestionHandler::ask_question(q) << std::endl;
+   QuestionHandler::ask_question(q);
 }
