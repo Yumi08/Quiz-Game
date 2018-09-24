@@ -4,16 +4,19 @@
 #include <vector>
 #include "QuestionResult.hpp"
 #include "QuestionGroup.hpp"
-#include <json/reader.h>
 #include <fstream>
 #include <string>
 #include <streambuf>
+#include <nlohmann/json.hpp>
+#include <string>
 
 void setup(){
    srand(time(0));
 }
 
-void import_questions(){
+QuestionGroup import_questions(){
+   using json = nlohmann::json;
+
    std::ifstream questions_file("questions.json", std::ios::in | std::ios::ate);
    std::string file_text;
 
@@ -24,41 +27,25 @@ void import_questions(){
    file_text.assign(std::istreambuf_iterator<char>(questions_file),
    std::istreambuf_iterator<char>());
 
-   
+   QuestionGroup qg;
+
+   auto questions_json = json::parse(file_text);
+
+   // std::cout << questions_json[0].at("Question").begin()->get<std::string>() << std::endl;
+
+   for (auto i = questions_json.begin(); i != questions_json.end(); i++){
+      qg.push_back(QuestionResult{Question{
+      (*i).at("Question").begin()->get<std::string>(),
+      (*i).at("Answers"),
+      (*i).at("Correct_Answer").begin()->get<std::string>()}});
+   }
+
+   return qg;
 }
 
 int main(){
    setup();
-   import_questions();
+   auto questions = import_questions();
 
-   QuestionGroup questions;
-   questions.push_back({
-      {
-         "What does tamago mean in Japanese?",
-         {
-            "Potato",
-            "Salad",
-            "Egg",
-            "Bread"
-         },
-         "Egg"
-      }
-   });
-   questions.push_back({
-      {
-         "How do you say potato in Japanese?",
-         {
-            "Ore",
-            "Jagaimo",
-            "Watashi",
-            "Suru",
-            "Tamago"
-         },
-         "Jagaimo"
-      }
-   });
-
-   QuestionHandler::show_correct_answer = true;
-   questions.shuffle_questions = true;
    questions.ask_all_questions();
 }

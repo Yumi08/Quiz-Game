@@ -4,8 +4,8 @@
 #include <algorithm>
 
 bool QuestionHandler::show_correct_answer = false;
-const char* QuestionHandler::correct_answer_message = "Correct!";
-const char* QuestionHandler::incorrect_answer_message = "Incorrect!";
+std::string QuestionHandler::correct_answer_message = "Correct!";
+std::string QuestionHandler::incorrect_answer_message = "Incorrect!";
 
 bool QuestionHandler::ask_question(const Question &question){
    std::cout << question.question << std::endl;

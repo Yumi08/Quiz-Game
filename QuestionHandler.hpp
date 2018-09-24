@@ -1,14 +1,15 @@
 #pragma once
 #include "Question.hpp"
 #include "QuestionResult.hpp"
+#include <string>
 
 class QuestionHandler{
    private:
    QuestionHandler();
 
    public:
-   static const char* correct_answer_message;
-   static const char* incorrect_answer_message;
+   static std::string correct_answer_message;
+   static std::string incorrect_answer_message;
    static bool show_correct_answer;
 
    static bool ask_question(const Question &question);

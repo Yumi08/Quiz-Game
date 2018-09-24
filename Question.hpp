@@ -1,8 +1,9 @@
 #pragma once
 #include <vector>
+#include <string>
 
 struct Question{
-   const char* question;
-   std::vector<const char*> answers;
-   const char* correct_answer;
+   std::string question;
+   std::vector<std::string> answers;
+   std::string correct_answer;
 };

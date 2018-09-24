@@ -37,6 +37,11 @@
       "typeinfo": "cpp",
       "utility": "cpp",
       "deque": "cpp",
-      "numeric": "cpp"
+      "numeric": "cpp",
+      "cstddef": "cpp",
+      "cstring": "cpp",
+      "forward_list": "cpp",
+      "functional": "cpp",
+      "valarray": "cpp"
    }
 }

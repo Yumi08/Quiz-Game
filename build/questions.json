@@ -1,13 +1,11 @@
 [
    {
-      "question":{
-         "question":"What is an egg?",
-         "answers":[
-            "Potato",
-            "Egg",
-            "Orange"
-         ],
-         "correct_answer":"Egg"
-      }
+      "Question":"What is the meaning of life?",
+      "Answers":[
+         "1",
+         "4",
+         "42"
+      ],
+      "Correct_Answer":"42"
    }
 ]
