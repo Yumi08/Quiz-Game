@@ -59,4 +59,6 @@ int main(){
    auto questions = import_questions();
 
    questions.ask_all_questions();
+
+   std::cin.get();
 }
