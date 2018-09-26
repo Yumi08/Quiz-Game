@@ -33,7 +33,18 @@ QuestionGroup import_questions(){
 
    // std::cout << questions_json[0].at("Question").begin()->get<std::string>() << std::endl;
 
-   for (auto i = questions_json.begin(); i != questions_json.end(); i++){
+      getquizname:
+      std::string quiz_name;
+      std::cout << "What quiz would you like to take?" << std::endl;
+      std::getline(std::cin, quiz_name);
+
+      try{questions_json.at(quiz_name);}
+      catch(...){
+         std::cout << "Quiz not found!" << std::endl;
+         goto getquizname;
+         }
+
+   for (auto i = questions_json.at(quiz_name).begin(); i != questions_json.at(quiz_name).end(); i++){
       qg.push_back(QuestionResult{Question{
       (*i).at("Question").begin()->get<std::string>(),
       (*i).at("Answers"),
