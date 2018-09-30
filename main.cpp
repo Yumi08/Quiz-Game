@@ -1,7 +1,6 @@
 #include <iostream>
 #include "Question.hpp"
 #include "QuestionHandler.hpp"
-#include <vector>
 #include "QuestionResult.hpp"
 #include "QuestionGroup.hpp"
 #include <fstream>
@@ -57,6 +56,7 @@ QuestionGroup import_questions(){
 int main(){
    setup();
    auto questions = import_questions();
+   questions.shuffle_questions = true;
 
    questions.ask_all_questions();
 
